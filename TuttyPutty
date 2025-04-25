@@ -1,0 +1,21 @@
+	newfile="$(echo ${FILE} |sed -e "s/Covenant/EasyPeasy/g")";
+	mv "${FILE}" "${newfile}";
+done
+
+find ./ -type f -name "*COVENANT*" | while read FILE ; do
+	newfile="$(echo ${FILE} |sed -e "s/COVENANT/EASYPEASY/g")";
+	mv "${FILE}" "${newfile}";
+done
+
+#find ./ -type f -name "*covenant*" | while read FILE ; do
+#	newfile="$(echo ${FILE} |sed -e "s/covenant/ottocommand/g")";
+#	mv "${FILE}" "${newfile}";
+#done
+
+mv ../AssemblyReferences/ ./Data/ 
+
+mv ../ReferenceSourceLibraries/ ./Data/ 
+
+mv ../EmbeddedResources/ ./Data/ 
+
+dotnet build
